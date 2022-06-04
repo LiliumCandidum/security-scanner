@@ -1,0 +1,3 @@
+; cat /etc/passwd
+randomfile.txt; ls
+a || whoami

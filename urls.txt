@@ -1,2 +1,7 @@
-prova1
-prova2
+/echo.php
+/echo-name.php:name
+/find-escapeshellcmd.php:input
+/ping-escapeshellcmd.php:host
+/ping-no-amp.php:host
+/ping-no-space.php:host
+/ping.php:host

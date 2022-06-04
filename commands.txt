@@ -1,0 +1,8 @@
+pip install requests
+
+cp -a home/paola/security-scanner/phpFiles/. var/www/html
+
+sudo service apache2 start
+sudo service apache2 stop
+
+curl http://localhost/echo.php

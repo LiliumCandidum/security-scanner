@@ -1,0 +1,72 @@
+Assignment 1 - Scanner setup + Command Injection
+
+For this assignment, you will start building a minimal command injection vulnerability scanner. This assignment will then become a module of a larger security scanner that we will build in the next assignments.
+
+The ideal scanner should be a command-line interface script. It should receive an input with:
+
+    A target host (e.g., http://localhost)
+    A list of URLs to scan
+    A list of methods for each URL
+    A list of parameters for each URL You can use any input format you want.
+
+You can use any input format you want.
+
+My suggestion is to pass a list of URLs and parse them to extract the path and parameters. If you do not want to parse URLs, you can try a file formatted as follows, where URLs are separated by new lines, arguments in a line are separated by “:”, and each parameter is separated by “,”. Example:
+
+GET:/some/random/url/with-page.php:param1,param2,param3
+POST:/some/other/url/and-another-page.php:host
+GET:/path/page.php:val1,val2
+
+Then, for each parameter of each URL, you should inject an attack payload from a list of attacks. Example payload list:
+
+; cat /etc/passwd
+randomfile.txt; ls
+a || whoami
+
+Lastly, you should check if the attack was effective. For example, if you use the "; cat /etc/passwd" payload from above, you could check if you could extract (part of) the /etc/passwd file.
+
+The scanner won’t work on every environment, and that’s fine! You can refine your scanner as much as you want during the course and afterwards, but for this assignment your scanner should be able to test vulnerabilities from the provided target environment (see target.tar.gz). Notice that some pages are intentionally secure, while other contain different types of vulnerabilities.
+
+If this part was too easy for you, you can go on developing your scanner. These are some suggestions for additional tasks:
+
+    Develop additional test cases and check if the scanner works on them
+    Create additional attack payloads
+    Add new techniques to confirm that the attack was successful, possibly based on the specific attack payload.
+
+My suggestion is to keep the code as simple as possible: if you can implement it in bash with 3 lines of code, that’s even better! If you are unsure of the right technologies, I suggest using Python, In particular, you can use the Click framework (https://click.palletsprojects.com/en/8.1.x/).
+
+What to deliver:
+
+    The code for your minimal scanner
+    Instructions (or a run.sh script) to launch your scanner against the given target (ideally docker containers, if you have a complex set of requirements)
+    [Optional] A text file with any interesting additional information regarding your tool
+
+
+FAQs from last year
+
+    Do I need to pass the HTTP method for each input URL?
+
+In general, yes. However, for this assignment you can assume that all URLs are reachable using GET (which is actually the case for the target environment).
+Making your scanner work with different HTTP methods is an interesting feature, but for this assignment I suggest to keep it as simple as possible.
+
+
+    How can I pass the list of payloads to use during the attack phase?
+
+Similar to the previous question: keep it as simple as possible. Start with an array of hardcoded strings, then you can move to a configuration file that users can edit, and if you want to add a feature, you can add a flag to your tool that lets you choose an arbitrary file as a payload list for the tool. But start from the simple solution.
+
+
+    How can I be sure that the attack was effective?
+
+In general, this is very hard to check, because it depends on the attack payload. For example, if you have a payload that reads the "/etc/passwd" file, you will check for that specific content in the response page. Similarly, if you do "ls", you can check for some of the files you have in your folder (in particular, the names of the pages in the target environment).
+
+For this reason, I suggest to keep a single class of attack payloads and build an oracle that is directly tied to it (if you are unsure, use the "ls" one).
+
+
+    What's the desired output for the tool? Should I execute commands?
+
+For this assignment, the interesting part is the detection phase. The idea is that you have N URLs with M parameters, and you want to check which parameters of which URLs are vulnerable to Command Injection. This is a boring and error-prone task, so the main objective of this tool is to do the search for you. The best output is "I found a command injection on the X parameter of the Y URL, using the Z payload".
+
+
+    Which is the best way to implement [ generic task ]?
+
+For this task, choose the easiest solution you can think of, also specific for this environment. This small tool should not work for every possible use case, it should only automate your methodology. Let the tool do the boring tasks, so you can focus on the interesting ones :D
