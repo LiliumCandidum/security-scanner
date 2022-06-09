@@ -44,27 +44,11 @@ What to deliver:
 
 FAQs from last year
 
-    Do I need to pass the HTTP method for each input URL?
-
-In general, yes. However, for this assignment you can assume that all URLs are reachable using GET (which is actually the case for the target environment).
-Making your scanner work with different HTTP methods is an interesting feature, but for this assignment I suggest to keep it as simple as possible.
-
-
-    How can I pass the list of payloads to use during the attack phase?
-
-Similar to the previous question: keep it as simple as possible. Start with an array of hardcoded strings, then you can move to a configuration file that users can edit, and if you want to add a feature, you can add a flag to your tool that lets you choose an arbitrary file as a payload list for the tool. But start from the simple solution.
-
-
     How can I be sure that the attack was effective?
 
 In general, this is very hard to check, because it depends on the attack payload. For example, if you have a payload that reads the "/etc/passwd" file, you will check for that specific content in the response page. Similarly, if you do "ls", you can check for some of the files you have in your folder (in particular, the names of the pages in the target environment).
 
 For this reason, I suggest to keep a single class of attack payloads and build an oracle that is directly tied to it (if you are unsure, use the "ls" one).
-
-
-    What's the desired output for the tool? Should I execute commands?
-
-For this assignment, the interesting part is the detection phase. The idea is that you have N URLs with M parameters, and you want to check which parameters of which URLs are vulnerable to Command Injection. This is a boring and error-prone task, so the main objective of this tool is to do the search for you. The best output is "I found a command injection on the X parameter of the Y URL, using the Z payload".
 
 
     Which is the best way to implement [ generic task ]?

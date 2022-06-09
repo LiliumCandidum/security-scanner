@@ -5,3 +5,4 @@
 /ping-no-amp.php:host
 /ping-no-space.php:host
 /ping.php:host
+/echo-ping.php:name,host
