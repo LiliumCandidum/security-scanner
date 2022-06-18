@@ -1,6 +1,27 @@
+INSTALLED
+sudo apt-get install php-mysql
+
+
+
+WLS
 cp -a home/paola/security-scanner/phpFiles/. var/www/html
 
+UBUNTU PC
+1. vai in var/www/html
+2. cp -a ~/Privata/Uni/git/security-scanner/phpFiles/. ./
+
+
+MYSQL
 sudo service apache2 start
+sudo service apache2 restart
 sudo service apache2 stop
 
+sudo mysql -u root -h localhost -p
+
+
+APACHE
+sudo service mysql start
+sudo service mysql stop
+
 curl http://localhost/echo.php
+curl http://localhost/find.php?search=Orange'%20OR%20'a'=a'

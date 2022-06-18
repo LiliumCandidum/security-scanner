@@ -1,0 +1,8 @@
+GET:/echo.php
+GET:/echo-name.php:name
+GET:/find-escapeshellcmd.php:input
+GET:/ping-escapeshellcmd.php:host
+GET:/ping-no-amp.php:host
+GET:/ping-no-space.php:host
+GET:/ping.php:host
+GET:/echo-ping.php:name,host
