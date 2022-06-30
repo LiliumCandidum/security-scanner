@@ -1,0 +1,6 @@
+POST:/login.php:user,pass
+POST:/login2.php:user,pass
+
+step;number_of_columns;attack
+
+TOGLI ECHO DA FIND.PHP IN VAR/WWW/HTML

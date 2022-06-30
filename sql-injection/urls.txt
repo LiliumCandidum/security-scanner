@@ -1,7 +1,6 @@
+GET:/find.php:search
 GET:/find2.php:search
 GET:/find3.php:search
-POST:/login.php:user,pass
-POST:/login2.php:user,pass
 GET:/search.php:search
 GET:/search_by_price.php:max
 GET:/search_by_price2.php:max
