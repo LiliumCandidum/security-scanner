@@ -1,2 +1,0 @@
-Fare un attacco union injection utilizzando un elenco di exploit.
-La lista dovrebbe consentirti di dedurre la sintassi corretta e il numero di colonne corretto

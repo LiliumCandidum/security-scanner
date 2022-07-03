@@ -2,7 +2,6 @@ INSTALLED
 sudo apt-get install php-mysql
 
 
-
 WLS
 cp -a home/paola/security-scanner/phpFiles/. var/www/html
 
