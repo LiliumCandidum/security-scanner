@@ -1,0 +1,9 @@
+/echo-attr.php:name
+/echo-attr2.php:name
+/echo-name.php:name
+/echo-name-protected.php:name
+/echo.php
+/img-loader-protected.php:target
+/img-loader-protected2.php:target
+/img-loader.php:target
+/redirect.php:target

@@ -1,0 +1,22 @@
+
+You can run the scanner on the target environment, which has different injection contexts (and non-injectable pages).
+
+Detection step
+This phase should iterate over the provided URLs, parameters, and methods. In this case, you can only consider GET
+as a method,since we're dealing with simple Reflected XSS (although POST could also be possible).
+
+Exploitation step
+Perform an attack against the current parameter. You should perform a Reflected XSS.
+Notice that your exploit list should allow you to guess the right context of the injection point (HTML tag,
+HTML attribute, etc.).
+
+Confirmation step
+In the last step, you should confirm that the attack was successful.
+The confirmation step is actually split into 2 steps:
+
+    Confirm that the page is printing  the provided value, e.g., "alert(1)" or variants of this PoC payload
+    ONLY IF THE PAGE PRINTS THE PROVIDED VALUE, confirm with Selenium that the page displays a popup
+
+Notice that there could be instances in which the "alert(1)" message is printed, but no popup is displayed.
+This might be due to multiple factors, e.g., if the scanner is trying to inject a "<script>alert(1)<script>" payload
+inside the "class" attribute of an HTML tag.

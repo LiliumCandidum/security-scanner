@@ -24,3 +24,5 @@ sudo service mysql stop
 
 curl http://localhost/echo.php
 curl http://localhost/find.php?search=Orange'%20OR%20'a'=a'
+
+http://localhost/echo-attr.php?name=%27%22--%3E%3C%2Fstyle%3E%3C%2Fscript%3E%3Cscript%3Ealert%281%29%3C%2Fscript%3E
