@@ -1,6 +1,7 @@
 ## Prerequisites
-- Python3, "requests", "chromeDriverManager" and "webdriver" modules
+- Python3, "requests", "webdriver_manager" and "selenium" modules
 - Docker
+- Browser Chrome
 ## Execution
 Run the following commands inside the "xss-injection" folder containing the Dockerfile:
 1. docker build -t security-scanner . 
